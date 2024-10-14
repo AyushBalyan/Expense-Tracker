@@ -160,7 +160,7 @@ export const AppProvider = ({ children }) => {
     try {
       const response = await api.post('/expenses', expense);
       dispatch({ type: 'ADD_EXPENSE', payload: response.data });
-      await fetchAllData(); // Refresh dashboard data
+      await fetchAllData(); 
     } catch (error) {
       console.error('Add expense error:', error);
     }
@@ -170,7 +170,7 @@ export const AppProvider = ({ children }) => {
     try {
       const response = await api.put(`/expenses/${id}`, updatedExpense);
       dispatch({ type: 'EDIT_EXPENSE', payload: response.data });
-      await fetchAllData(); // Refresh dashboard data
+      await fetchAllData(); 
     } catch (error) {
       console.error('Edit expense error:', error);
     }
@@ -180,7 +180,7 @@ export const AppProvider = ({ children }) => {
     try {
       await api.delete(`/expenses/${id}`);
       dispatch({ type: 'DELETE_EXPENSE', payload: id });
-      await fetchAllData(); // Refresh dashboard data
+      await fetchAllData(); 
     } catch (error) {
       console.error('Delete expense error:', error);
     }
@@ -190,7 +190,7 @@ export const AppProvider = ({ children }) => {
     try {
       const response = await api.post('/income', { amount, month, year });
       dispatch({ type: 'ADD_INCOME', payload: response.data });
-      await fetchAllData(); // Refresh dashboard data
+      await fetchAllData(); 
     } catch (error) {
       console.error('Add income error:', error);
     }

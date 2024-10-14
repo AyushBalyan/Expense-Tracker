@@ -51,7 +51,6 @@ const ExpenseManager = () => {
     setSidebarOpen(false);
   };
 
-  // Helper function to format amount
   const formatAmount = (amount) => {
     const num = parseFloat(amount);
     return isNaN(num) ? "0.00" : num.toFixed(2);

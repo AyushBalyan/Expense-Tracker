@@ -175,10 +175,8 @@ exports.getDashboardData = async (req, res) => {
     );
     console.log('Category query result:', categoryResult.rows);
 
-    // Create a map of all months
     const monthlyDataMap = new Map();
     
-    // Populate with income data
     incomeResult.rows.forEach((income) => {
       monthlyDataMap.set(parseInt(income.month), {
         month: parseInt(income.month),
@@ -187,7 +185,6 @@ exports.getDashboardData = async (req, res) => {
       });
     });
 
-    // Add or update with expense data
     expenseResult.rows.forEach((expense) => {
       const month = parseInt(expense.month);
       if (monthlyDataMap.has(month)) {
@@ -201,7 +198,6 @@ exports.getDashboardData = async (req, res) => {
       }
     });
 
-    // Convert map to array and sort by month
     const monthlyData = Array.from(monthlyDataMap.values()).sort((a, b) => a.month - b.month);
 
     console.log('Monthly data:', monthlyData);
